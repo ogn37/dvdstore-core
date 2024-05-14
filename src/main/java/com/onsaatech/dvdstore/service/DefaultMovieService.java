@@ -4,6 +4,7 @@ import com.onsaatech.dvdstore.entity.Movie;
 import com.onsaatech.dvdstore.repository.MovieRepositoryInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.NoSuchElementException;
 import java.util.Optional;
@@ -17,6 +18,7 @@ public class DefaultMovieService implements MovieServiceInterface {
         this.movieRepository = movieRepository;
     }
 
+    @Transactional
     public Movie registerMovie(Movie movie) {
         return movieRepository.save(movie);
     }
